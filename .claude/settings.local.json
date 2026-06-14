@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(claude *)",
+      "PowerShell(Get-ExecutionPolicy *)",
+      "WebSearch",
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(bash --version)"
+    ]
+  }
+}
