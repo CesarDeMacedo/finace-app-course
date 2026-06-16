@@ -1,6 +1,8 @@
 "use server";
 
-import yahooFinance from "yahoo-finance2";
+import YahooFinance from "yahoo-finance2";
+
+const yf = new YahooFinance({ suppressNotices: ["yahooSurvey"] });
 
 export async function getStockQuotes(
   tickers: string[]
@@ -9,10 +11,8 @@ export async function getStockQuotes(
   await Promise.allSettled(
     tickers.map(async (ticker) => {
       try {
-        const quote = await yahooFinance.quote(ticker, {
-          fields: ["regularMarketPrice"],
-        });
-        results[ticker] = (quote as { regularMarketPrice?: number }).regularMarketPrice ?? null;
+        const quote = await yf.quote(ticker);
+        results[ticker] = quote.regularMarketPrice ?? null;
       } catch {
         results[ticker] = null;
       }

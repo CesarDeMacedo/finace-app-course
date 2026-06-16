@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Transaction } from "@/generated/prisma/client";
@@ -44,7 +45,7 @@ export function RecentTransactions({ transactions }: Props) {
                     {t.type === "INCOME" ? "+" : "-"}${t.amount.toFixed(2)}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    {new Date(t.date).toLocaleDateString()}
+                    {format(new Date(t.date), "MMM d, yyyy")}
                   </p>
                 </div>
               </li>

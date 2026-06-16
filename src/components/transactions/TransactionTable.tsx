@@ -1,5 +1,6 @@
 "use client";
 
+import { format } from "date-fns";
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -72,7 +73,7 @@ export function TransactionTable({ transactions }: Props) {
               {transactions.map((t) => (
                 <TableRow key={t.id}>
                   <TableCell className="text-sm">
-                    {new Date(t.date).toLocaleDateString()}
+                    {format(new Date(t.date), "MMM d, yyyy")}
                   </TableCell>
                   <TableCell>
                     <Badge
