@@ -5,7 +5,19 @@
       "PowerShell(Get-ExecutionPolicy *)",
       "WebSearch",
       "WebFetch(domain:docs.anthropic.com)",
-      "Bash(bash --version)"
+      "Bash(bash --version)",
+      "Skill(run)",
+      "PowerShell(Start-Process powershell -ArgumentList \"-NoProfile -Command `\"cd 'C:\\\\Users\\\\cesar\\\\OneDrive\\\\Área de Trabalho\\\\finace'; npm run dev`\"\" -WindowStyle Normal)",
+      "PowerShell(Start-Sleep -Seconds 4; Start-Process \"http://localhost:3000\")",
+      "Bash(npx --yes chromium-cli screenshot http://localhost:3000 --output /tmp/app-screenshot.png)",
+      "PowerShell(Add-Type -AssemblyName System.Windows.Forms; Add-Type -AssemblyName System.Drawing; Start-Sleep -Seconds 1; $screen = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds; $bitmap = New-Object System.Drawing.Bitmap\\($screen.Width, $screen.Height\\); $graphics = [System.Drawing.Graphics]::FromImage\\($bitmap\\); $graphics.CopyFromScreen\\($screen.Location, [System.Drawing.Point]::Empty, $screen.Size\\); $bitmap.Save\\(\"C:\\\\Users\\\\cesar\\\\AppData\\\\Local\\\\Temp\\\\screenshot.png\"\\); $graphics.Dispose\\(\\); $bitmap.Dispose\\(\\); Write-Output \"Screenshot saved\")",
+      "PowerShell(Start-Sleep -Seconds 3; $response = Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing 2>&1; if \\($response.StatusCode\\) { Write-Output \"Status: $\\($response.StatusCode\\)\" } else { Write-Output $response })",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"console.log\\(Object.keys\\(require\\('yahoo-finance2'\\)\\)\\)\")",
+      "PowerShell(Start-Process powershell -ArgumentList \"-NoExit\", \"-Command\", \"cd 'C:\\\\Users\\\\cesar\\\\OneDrive\\\\Área de Trabalho\\\\finace'; npx prisma studio\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
